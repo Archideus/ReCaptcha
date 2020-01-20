@@ -215,6 +215,7 @@ fileprivate extension ReCaptchaWebViewManager {
                 print("[JS LOG]:", message)
             #endif
         }
+      webView.isHidden = true
     }
 
     /**
