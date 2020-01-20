@@ -187,6 +187,7 @@ fileprivate extension ReCaptchaWebViewManager {
     func handle(result: ReCaptchaDecoder.Result) {
         switch result {
         case .token(let token):
+            webView.isHidden = true
             completion?(.token(token))
 
         case .error(let error):
@@ -195,6 +196,7 @@ fileprivate extension ReCaptchaWebViewManager {
                 validate(on: view)
             }
             else {
+              webView.isHidden = true
                 completion?(.error(error))
             }
 
@@ -215,7 +217,6 @@ fileprivate extension ReCaptchaWebViewManager {
                 print("[JS LOG]:", message)
             #endif
         }
-      webView.isHidden = true
     }
 
     /**
